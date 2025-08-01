@@ -144,7 +144,8 @@ def transformar_df(df_original):
   #anonimizo
   lista_emails = []
   lista_emails = anonimizacion.trabajar_dataframe(df,lista_emails)
-  df = anonimizacion.actualizar_dataframe(df,lista_emails)
+  bool_anonimizar = True #poner false si queremos mantener los mails y nombres
+  df = anonimizacion.actualizar_dataframe(df,lista_emails,bool_anonimizar)
   return df
 
 #transformar_df funciona, falta agregarle la anonimización. Fecha: 6/4/2024

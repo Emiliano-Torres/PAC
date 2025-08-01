@@ -20,7 +20,7 @@ def trabajar_dataframe(df_a_limpiar, lista_emails):#, inicio):
   lista_emails=actualizar_lista_emails(df_a_limpiar, lista_emails)#, inicio)
   return lista_emails
 
-def actualizar_dataframe(df_a_limpiar, lista_emails):
+def actualizar_dataframe(df_a_limpiar, lista_emails, bool_anonimizar):
   nro=df_a_limpiar['email'].count()
   count=1
   for email in lista_emails:
@@ -31,7 +31,8 @@ def actualizar_dataframe(df_a_limpiar, lista_emails):
         df_a_limpiar.loc[i, 'id']=count
     count=count+1
   #completar la anonimización
-  df_a_limpiar = df_a_limpiar.drop(['email','nombre'],axis=1)
+  if bool_anonimizar:
+    df_a_limpiar = df_a_limpiar.drop(['email','nombre'],axis=1)
   return df_a_limpiar
 
 #Crear una lista de emails vacia
